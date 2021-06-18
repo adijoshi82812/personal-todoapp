@@ -29,6 +29,7 @@ class Nav extends Component{
             >
                 <button
                     type="button"
+                    onClick={this.props.handleLogout}
                     className="w3-button w3-bar-item w3-hover-white w3-right"
                 >
                     Logout
