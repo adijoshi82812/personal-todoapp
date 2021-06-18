@@ -49,6 +49,7 @@ class LoginForm extends Component{
                     />
                     <button
                         type="button"
+                        onClick={() => this.props.handleLogin(this.state.credentials)}
                         className="w3-button w3-green w3-round"
                     >
                         Login

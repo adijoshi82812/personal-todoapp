@@ -25,7 +25,7 @@ class Nav extends Component{
 
         const logged_in_nav = (
             <nav
-                className="w3-bar w3-blue w-margin-bottom"
+                className="w3-bar w3-blue w3-margin-bottom"
             >
                 <button
                     type="button"
