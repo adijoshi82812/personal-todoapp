@@ -12,6 +12,12 @@ class TodoApp extends Component{
                 title: "",
                 description: "",
                 completed: false
+            },
+            newValue: {
+                user: "",
+                title: "",
+                description: "",
+                completed: false,
             }
         };
 
@@ -176,6 +182,50 @@ class TodoApp extends Component{
                                 </td>
                             </tr>
                         ) : datacomponent}
+
+                        <tr>
+                            <td
+                                colSpan="4"
+                            >
+                                <input
+                                    type="text"
+                                    name="title"
+                                    value={this.state.newValue.title}
+                                    placeholder="Enter task description"
+                                    className="w3-input w3-border w3-round"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                colSpan="4"
+                            >
+                                <textarea
+                                    name="description"
+                                    value={this.state.newValue.description}
+                                    placeholder="Enter task description"
+                                    className="w3-input w3-border w3-round w3-padding-24"
+                                    style={{ resize: "none" }}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                colSpan="3"
+                                style={{ textAlign: "right" }}
+                            >
+                                Click to add
+                            </td>
+                            <td>
+                                <button
+                                    type="button"
+                                    className="w3-button w3-blue w3-round"
+                                    style={{ width: "100%" }}
+                                >
+                                    Add
+                                </button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <this.Modal
