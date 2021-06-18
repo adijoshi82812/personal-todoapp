@@ -90,6 +90,16 @@ class TodoApp extends Component{
         }
     };
 
+    handleDelete = (id) => {
+        axios.delete('http://localhost:8000/api/todos/' + id + '/', {
+            headers: {
+                Authorization: `JWT ${localStorage.getItem('token')}`
+            }
+        })
+        .then(() => { this.refreshList(); })
+        .catch(err => console.log(err));
+    };
+
     render(){
         const datacomponent = this.state.Data.map(data => {
             return(
@@ -124,6 +134,16 @@ class TodoApp extends Component{
                             Details
                         </button>
                     </td>
+                    <td>
+                        <button
+                            type="button"
+                            onClick={() => this.handleDelete(data.id)}
+                            className="w3-button w3-red w3-round"
+                            style={{ width: "100%" }}
+                        >
+                            Delete
+                        </button>
+                    </td>
                 </tr>
             );
         });
@@ -155,8 +175,7 @@ class TodoApp extends Component{
                                     Nothing here add some task
                                 </td>
                             </tr>
-                        ) :  ""}
-                        {datacomponent}
+                        ) : datacomponent}
                     </tbody>
                 </table>
                 <this.Modal
