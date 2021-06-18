@@ -9,6 +9,14 @@ class LoginForm extends Component{
                 password: ""
             }
         };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event){
+        const cred = this.state.credentials;
+        cred[event.target.name] = event.target.value;
+        this.setState({ credentials: cred });
     }
 
     render(){
@@ -27,6 +35,7 @@ class LoginForm extends Component{
                         name="username"
                         value={this.state.credentials.username}
                         placeholder="Enter your username"
+                        onChange={this.handleChange}
                         className="w3-input w3-border w3-margin-bottom"
                     />
                     <input
@@ -34,6 +43,8 @@ class LoginForm extends Component{
                         name="password"
                         value={this.state.credentials.password}
                         placeholder="Enter your password"
+                        onChange={this.handleChange}
+                        autoComplete="false"
                         className="w3-input w3-border w3-margin-bottom"
                     />
                     <button
