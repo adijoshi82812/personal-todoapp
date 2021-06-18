@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'core.apps.CoreConfig',
+    'todo.apps.TodoConfig',
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
