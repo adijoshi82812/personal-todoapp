@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Nav from './components/Nav';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
+import TodoApp from './components/TodoApp';
 
 class App extends Component{
   constructor(){
@@ -135,7 +136,9 @@ class App extends Component{
           handleDisplayForm={this.handleDisplayForm}
           handleLogout={this.handleLogout}
         />
-        {form}
+        {this.state.logged_in ? (
+          <TodoApp/>
+        ) : form}
       </div>
     );
   }
