@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Nav from './components/Nav';
 import LoginForm from './components/LoginForm';
+import SignUpForm from './components/SignUpForm';
 
 class App extends Component{
   constructor(){
@@ -81,7 +82,9 @@ class App extends Component{
         break;
 
       case 'signup':
-        form = "";
+        form = (
+          <SignUpForm/>
+        );
         break;
 
       default:
