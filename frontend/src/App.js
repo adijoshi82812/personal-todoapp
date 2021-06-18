@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Nav from './components/Nav';
+import LoginForm from './components/LoginForm';
 
 class App extends Component{
   constructor(){
@@ -16,12 +17,30 @@ class App extends Component{
   };
 
   render(){
+    let form;
+    switch(this.state.display_form){
+      case 'login':
+        form = (
+          <LoginForm/>
+        );
+        break;
+
+      case 'signup':
+        form = "";
+        break;
+
+      default:
+        form = null;
+        break;
+    }
+
     return(
       <div>
         <Nav
           logged_in={this.state.logged_in}
           handleDisplayForm={this.handleDisplayForm}
         />
+        {form}
       </div>
     );
   }
