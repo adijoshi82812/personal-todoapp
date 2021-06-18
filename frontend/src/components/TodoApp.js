@@ -113,6 +113,33 @@ class TodoApp extends Component{
         this.setState({ newValue: data });
     }
 
+    handleAdd = (data) => {
+        if(data.title.length < 4)
+            return alert('Title must be 4 characters');
+
+        if(data.description.length < 10)
+            return alert('Description must be 10 characters');
+
+        data.user = this.props.user_id;
+        axios.post('http://localhost:8000/api/todos/', data, {
+            headers: {
+                Authorization: `JWT ${localStorage.getItem('token')}`
+            }
+        })
+        .then(() => {
+            this.setState({
+                newValue: {
+                    user: "",
+                    title: "",
+                    description: "",
+                    completed: false,
+                }
+            });
+            this.refreshList();
+        })
+        .catch(err => console.log(err));
+    };
+
     render(){
         const datacomponent = this.state.Data.map(data => {
             return(
@@ -228,6 +255,7 @@ class TodoApp extends Component{
                             <td>
                                 <button
                                     type="button"
+                                    onClick={() => this.handleAdd(this.state.newValue)}
                                     className="w3-button w3-blue w3-round"
                                     style={{ width: "100%" }}
                                 >
