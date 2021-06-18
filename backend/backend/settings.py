@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'core.apps.CoreConfig',
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
