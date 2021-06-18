@@ -137,7 +137,9 @@ class App extends Component{
           handleLogout={this.handleLogout}
         />
         {this.state.logged_in ? (
-          <TodoApp/>
+          <TodoApp
+            username={this.state.username}
+          />
         ) : form}
       </div>
     );
