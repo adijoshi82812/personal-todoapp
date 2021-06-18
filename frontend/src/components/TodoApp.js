@@ -26,6 +26,19 @@ class TodoApp extends Component{
         this.refreshList();
     }
 
+    handleUpdate = (data) => {
+        data.completed = data.completed ? false : true;
+        axios.put('http://localhost:8000/api/todos/' + data.id + '/', data, {
+            headers: {
+                Authorization: `JWT ${localStorage.getItem('token')}`
+            }
+        })
+        .then(() => {
+            this.refreshList();
+        })
+        .catch(err => console.log(err));
+    };
+
     render(){
         const datacomponent = this.state.Data.map(data => {
             return(
@@ -37,6 +50,7 @@ class TodoApp extends Component{
                             type="checkbox"
                             id={data.id}
                             checked={data.completed}
+                            onChange={() => this.handleUpdate(data)}
                             className="w3-check"
                         />
                     </td>

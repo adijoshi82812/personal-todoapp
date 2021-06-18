@@ -139,6 +139,7 @@ class App extends Component{
         {this.state.logged_in ? (
           <TodoApp
             username={this.state.username}
+            user_id={this.state.user_id}
           />
         ) : form}
       </div>
