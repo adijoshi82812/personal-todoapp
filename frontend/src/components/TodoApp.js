@@ -22,6 +22,7 @@ class TodoApp extends Component{
         };
 
         this.handleModal = this.handleModal.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     refreshList = () => {
@@ -105,6 +106,12 @@ class TodoApp extends Component{
         .then(() => { this.refreshList(); })
         .catch(err => console.log(err));
     };
+
+    handleChange(event){
+        const data = this.state.newValue;
+        data[event.target.name] =  event.target.value;
+        this.setState({ newValue: data });
+    }
 
     render(){
         const datacomponent = this.state.Data.map(data => {
@@ -192,6 +199,7 @@ class TodoApp extends Component{
                                     name="title"
                                     value={this.state.newValue.title}
                                     placeholder="Enter task description"
+                                    onChange={this.handleChange}
                                     className="w3-input w3-border w3-round"
                                 />
                             </td>
@@ -204,6 +212,7 @@ class TodoApp extends Component{
                                     name="description"
                                     value={this.state.newValue.description}
                                     placeholder="Enter task description"
+                                    onChange={this.handleChange}
                                     className="w3-input w3-border w3-round w3-padding-24"
                                     style={{ resize: "none" }}
                                 />
