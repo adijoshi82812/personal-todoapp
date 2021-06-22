@@ -13,6 +13,6 @@ Contact me at : adijoshi82812@gmail.com
 ## Copyright
 This app is written by Aditya Joshi. \
 Modifying and publishing this project can be done using copyright text. \
-Copyright Aditya Joshi &copy; Joshi's. \
+Copyright Aditya Joshi &copy; Joshi's.
 
 **Note** : I Have deleted the css library, if you want the same output just add w3.css framework from https://www.w3schools.com/w3css/4/w3.css
