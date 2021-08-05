@@ -19,7 +19,7 @@ This app uses ReactJS to display the UI to the browser and uses python-django to
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/adijoshi82812/personal-todoapp.git
 ```
 
 ### Run the backend server
